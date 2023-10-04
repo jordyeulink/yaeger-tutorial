@@ -14,6 +14,7 @@ public class GameApp extends YaegerGame {
     public void setupGame() {
         setGameTitle("Star Shooter");
         setSize(new Size(800, 600));
+        //test
     }
 
 
