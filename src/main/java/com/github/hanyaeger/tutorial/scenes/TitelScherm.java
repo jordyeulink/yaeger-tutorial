@@ -6,8 +6,6 @@ import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
-import com.github.hanyaeger.tutorial.WaterWorld;
-import com.github.hanyaeger.tutorial.entities.buttons.StartButton;
 import com.github.hanyaeger.tutorial.entities.buttons.StartKnop;
 import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
@@ -34,12 +32,12 @@ public class TitelScherm extends StaticScene implements MouseButtonPressedListen
         var startButton = new StartKnop(new Coordinate2D(getWidth() / 2, getHeight() / 2 +100),gameApp);
 
         TitelText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        TitelText.setFill(Color.DARKBLUE);
+        TitelText.setFill(Color.ORANGE);
         TitelText.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 80));
         addEntity(TitelText);
 
         startButton.setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        startButton.setFill(Color.DARKBLUE);
+        startButton.setFill(Color.ORANGE);
         startButton.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 80));
         addEntity(startButton);
     }

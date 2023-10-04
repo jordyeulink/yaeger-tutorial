@@ -3,8 +3,6 @@ package com.github.hanyaeger.tutorial.scenes;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.tutorial.GameApp;
-import com.github.hanyaeger.tutorial.WaterWorld;
-import com.github.hanyaeger.tutorial.entities.enemy.Hanny;
 import com.github.hanyaeger.tutorial.entities.enemy.Swordfish;
 import com.github.hanyaeger.tutorial.entities.karakters.Speler;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;

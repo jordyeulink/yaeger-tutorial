@@ -65,6 +65,6 @@ public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void onCollision(Collider collider) {
-
+        System.out.println("collision");
     }
 }
