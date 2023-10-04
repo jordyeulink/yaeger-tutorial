@@ -22,9 +22,11 @@ public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBor
     GameApp gameApp;
     private int levens = 10;
     public Speler(Coordinate2D location,  HealthText healthText, GameApp gameApp) {
-        super("", location);
+        super("sprites/swordfish.png", location);
         this.healthText = healthText;
         this.gameApp = gameApp;
+
+        healthText.setHealthText(levens);
     }
 
     @Override

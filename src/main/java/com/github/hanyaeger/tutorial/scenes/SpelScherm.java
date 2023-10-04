@@ -29,8 +29,8 @@ public class SpelScherm extends DynamicScene {
     @Override
     public void setupEntities() {
         speler = new Speler(new Coordinate2D(100,300), Levens, gameApp);
-        S = new Swordfish(new Coordinate2D(100,100));
-        addEntity(S);
+        //S = new Swordfish(new Coordinate2D(100,100));
+        //addEntity(S);
         addEntity(speler);
         addEntity(Levens);
     }
