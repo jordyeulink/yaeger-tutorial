@@ -9,6 +9,8 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 
+import com.github.hanyaeger.tutorial.GameApp;
+import com.github.hanyaeger.tutorial.entities.text.HealthText;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 
@@ -16,14 +18,13 @@ import java.util.Optional;
 import java.util.Set;
 
 public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided {
-
-    private int xPos;
-    private int yPos;
+    HealthText healthText;
+    GameApp gameApp;
     private int levens = 10;
-    protected Speler(String resource, int xPos , int yPos) {
-        super(resource, new Coordinate2D(xPos, yPos));
-        this.xPos = xPos;
-        this.yPos = yPos;
+    public Speler(Coordinate2D location,  HealthText healthText, GameApp gameApp) {
+        super("", location);
+        this.healthText = healthText;
+        this.gameApp = gameApp;
     }
 
     @Override
