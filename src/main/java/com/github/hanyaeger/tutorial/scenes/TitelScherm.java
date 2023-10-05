@@ -22,7 +22,7 @@ public class TitelScherm extends StaticScene implements MouseButtonPressedListen
 
     @Override
     public void setupScene(){
-        setBackgroundImage("backgrounds/background1.jpg");
+        setBackgroundImage("backgrounds/backgroundspel.jpg");
     }
 
     @Override

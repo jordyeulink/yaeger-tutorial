@@ -20,8 +20,7 @@ public class SpelScherm extends DynamicScene {
 
     @Override
     public void setupScene() {
-        setBackgroundAudio("audio/ocean.mp3");
-        setBackgroundImage("backgrounds/background2.jpg");
+        setBackgroundImage("backgrounds/backgroundspelscherm.jpg");
     }
 
     @Override
