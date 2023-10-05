@@ -2,8 +2,10 @@ package com.github.hanyaeger.tutorial.entities.karakters;
 
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
+import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
@@ -17,15 +19,17 @@ import javafx.scene.input.KeyCode;
 import java.util.Optional;
 import java.util.Set;
 
-public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided {
+public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian {
     HealthText healthText;
     GameApp gameApp;
     private int levens = 10;
     public Speler(Coordinate2D location,  HealthText healthText, GameApp gameApp) {
-        super("sprites/swordfish.png", location);
+        super("sprites/speler.png",location, new Size(50));
         this.healthText = healthText;
         this.gameApp = gameApp;
 
+        setGravityConstant(0);
+        setFrictionConstant(0.02);
         healthText.setHealthText(levens);
     }
 
