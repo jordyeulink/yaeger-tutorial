@@ -16,18 +16,11 @@ public class Tank extends Tegenstanders{
         setFrictionConstant(0);
     }
 
-    @Override
-    public void onCollision(Collider collider) {
-
-    }
 
     @Override
     public void notifyBoundaryTouching(SceneBorder sceneBorder) {
-        //(initialLocation.getY()<=getSceneHeight()) && (initialLocation.getY()<= 0)
-        System.out.println("test");
         if(sceneBorder == SceneBorder.TOP){
             setMotion(3,0d);
-            System.out.println("siuu");
         } else {
                 setMotion(3, 180d);
         }

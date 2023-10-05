@@ -6,14 +6,14 @@ import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 
 public class Speeder extends Tegenstanders{
-    protected Speeder(String resource, Coordinate2D initialLocation, Size size) {
-        super(resource, initialLocation, size);
+    protected Speeder( Coordinate2D initialLocation, Size size) {
+        super("", initialLocation, size);
+        //setMotion(3,0d);
+        setGravityConstant(0);
+        setFrictionConstant(0);
     }
 
-    @Override
-    public void onCollision(Collider collider) {
 
-    }
 
     @Override
     public void notifyBoundaryTouching(SceneBorder sceneBorder) {
