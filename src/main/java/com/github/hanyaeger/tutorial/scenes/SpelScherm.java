@@ -2,19 +2,19 @@ package com.github.hanyaeger.tutorial.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
-import com.github.hanyaeger.api.entities.YaegerEntity;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
-import com.github.hanyaeger.tutorial.entities.enemy.Swordfish;
 import com.github.hanyaeger.tutorial.entities.karakters.Speeder;
 import com.github.hanyaeger.tutorial.entities.karakters.Speler;
 import com.github.hanyaeger.tutorial.entities.karakters.Tank;
+import com.github.hanyaeger.tutorial.entities.kogels.Laser;
+import com.github.hanyaeger.tutorial.entities.kogels.Raket;
 import com.github.hanyaeger.tutorial.entities.kogels.Wapens;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
 import javafx.scene.input.MouseButton;
 
-import java.util.ArrayList;
+
 
 public class SpelScherm extends DynamicScene implements MouseButtonPressedListener {
 
@@ -47,7 +47,12 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
 
     @Override
     public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
-        Wapens kogel = new Wapens(speler.getAnchorLocation());
+        Wapens kogel = new Laser(speler.getAnchorLocation(), "sprites/laser.png",90);
+        Wapens schot = new Laser(speeder.getAnchorLocation(), "sprites/enemylaser.png",270);
+        Wapens raket = new Raket(tank.getAnchorLocation());
         addEntity(kogel);
+        addEntity(schot);
+        addEntity(raket);
     }
+
 }

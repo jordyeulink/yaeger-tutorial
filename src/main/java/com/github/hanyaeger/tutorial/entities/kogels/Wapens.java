@@ -7,9 +7,9 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 
 public class Wapens extends DynamicSpriteEntity implements SceneBorderCrossingWatcher {
-    public Wapens( Coordinate2D initialLocation) {
-        super("sprites/laser.png", initialLocation, new Size(70,50));
-        setMotion(3,90);
+    public Wapens( Coordinate2D initialLocation,  String resource) {
+        super(resource, initialLocation, new Size(70,50));
+
     }
 
 
