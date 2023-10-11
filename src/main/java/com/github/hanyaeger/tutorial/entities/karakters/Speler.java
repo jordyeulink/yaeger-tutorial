@@ -13,6 +13,9 @@ import com.github.hanyaeger.api.userinput.KeyListener;
 
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
+import com.github.hanyaeger.tutorial.entities.kogels.Laser;
+import com.github.hanyaeger.tutorial.entities.kogels.Raket;
+import com.github.hanyaeger.tutorial.entities.kogels.Schot;
 import com.github.hanyaeger.tutorial.entities.kogels.Wapens;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
 import javafx.scene.Node;
@@ -22,12 +25,13 @@ import javafx.scene.input.MouseButton;
 import java.util.Optional;
 import java.util.Set;
 
-public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian{
+public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian {
     HealthText healthText;
     GameApp gameApp;
     private int levens = 10;
-    public Speler(Coordinate2D location,  HealthText healthText, GameApp gameApp) {
-        super("sprites/speler.png",location, new Size(50));
+
+    public Speler(Coordinate2D location, HealthText healthText, GameApp gameApp) {
+        super("sprites/speler.png", location, new Size(50));
         this.healthText = healthText;
         this.gameApp = gameApp;
 
@@ -37,10 +41,10 @@ public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBor
     }
 
     @Override
-    public void notifyBoundaryTouching(SceneBorder border){
+    public void notifyBoundaryTouching(SceneBorder border) {
         setSpeed(0);
 
-        switch(border){
+        switch (border) {
             case TOP:
                 setAnchorLocationY(1);
                 break;
@@ -58,21 +62,27 @@ public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBor
     }
 
     @Override
-    public void onPressedKeysChange(Set<KeyCode> pressedKeys){
-        if(pressedKeys.contains(KeyCode.LEFT)){
-            setMotion(3,270d);
-        } else if(pressedKeys.contains(KeyCode.RIGHT)){
-            setMotion(3,90d);
-        } else if(pressedKeys.contains(KeyCode.UP)){
-            setMotion(3,180d);
-        } else if(pressedKeys.contains(KeyCode.DOWN)){
-            setMotion(3,0d);
+    public void onPressedKeysChange(Set<KeyCode> pressedKeys) {
+        if (pressedKeys.contains(KeyCode.LEFT)) {
+            setMotion(3, 270d);
+        } else if (pressedKeys.contains(KeyCode.RIGHT)) {
+            setMotion(3, 90d);
+        } else if (pressedKeys.contains(KeyCode.UP)) {
+            setMotion(3, 180d);
+        } else if (pressedKeys.contains(KeyCode.DOWN)) {
+            setMotion(3, 0d);
         }
     }
 
     @Override
     public void onCollision(Collider collider) {
-        System.out.println("collision");
+        if (collider instanceof Raket || collider instanceof Schot) {
+            levens--;
+            healthText.setHealthText(levens);
+            if(levens == 0){
+                remove();
+                gameApp.setActiveScene(0);
+            }
+        }
     }
-
 }

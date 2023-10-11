@@ -5,6 +5,7 @@ import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.scenes.SceneBorder;
+import com.github.hanyaeger.tutorial.entities.kogels.Laser;
 
 import java.util.Random;
 
@@ -34,6 +35,13 @@ public class Speeder extends Tegenstanders implements SceneBorderCrossingWatcher
                     getSceneWidth() + 100,
                     new Random().nextInt((int)(getSceneHeight()-getHeight())))
             );
+        }
+    }
+
+    @Override
+    public void onCollision(Collider collider) {
+        if(collider instanceof Laser){
+            remove();
         }
     }
 }

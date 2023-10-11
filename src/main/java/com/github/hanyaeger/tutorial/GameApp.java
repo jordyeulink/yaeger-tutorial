@@ -21,5 +21,6 @@ public class GameApp extends YaegerGame {
     public void setupScenes(){
     addScene(0, new TitelScherm(this));
     addScene(1, new SpelScherm(this));
+    //addScene(2, new EndScene(this));
 }
 }

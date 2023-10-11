@@ -5,6 +5,8 @@ import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.scenes.SceneBorder;
+import com.github.hanyaeger.tutorial.entities.kogels.Laser;
+import com.github.hanyaeger.tutorial.entities.kogels.Wapens;
 
 public class Tank extends Tegenstanders{
     Coordinate2D initialLocation;
@@ -24,5 +26,13 @@ public class Tank extends Tegenstanders{
         } else {
                 setMotion(3, 180d);
         }
+    }
+
+    @Override
+    public void onCollision(Collider collider) {
+        if(collider instanceof Laser){
+            remove();
+        }
+
     }
 }

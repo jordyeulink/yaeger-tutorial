@@ -2,13 +2,14 @@ package com.github.hanyaeger.tutorial.entities.kogels;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 
-public class Wapens extends DynamicSpriteEntity implements SceneBorderCrossingWatcher {
+public class Wapens extends DynamicSpriteEntity implements SceneBorderCrossingWatcher, Collider {
     public Wapens( Coordinate2D initialLocation,  String resource) {
-        super(resource, initialLocation, new Size(70,50));
+        super(resource, initialLocation, new Size(50,70));
 
     }
 
