@@ -11,15 +11,18 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 
+import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
+import com.github.hanyaeger.tutorial.entities.kogels.Wapens;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseButton;
 
 import java.util.Optional;
 import java.util.Set;
 
-public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian {
+public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian{
     HealthText healthText;
     GameApp gameApp;
     private int levens = 10;
@@ -71,4 +74,5 @@ public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBor
     public void onCollision(Collider collider) {
         System.out.println("collision");
     }
+
 }

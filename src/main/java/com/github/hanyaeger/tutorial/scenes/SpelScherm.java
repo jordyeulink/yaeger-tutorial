@@ -2,15 +2,21 @@ package com.github.hanyaeger.tutorial.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.entities.YaegerEntity;
 import com.github.hanyaeger.api.scenes.DynamicScene;
+import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
 import com.github.hanyaeger.tutorial.entities.enemy.Swordfish;
 import com.github.hanyaeger.tutorial.entities.karakters.Speeder;
 import com.github.hanyaeger.tutorial.entities.karakters.Speler;
 import com.github.hanyaeger.tutorial.entities.karakters.Tank;
+import com.github.hanyaeger.tutorial.entities.kogels.Wapens;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
+import javafx.scene.input.MouseButton;
 
-public class SpelScherm extends DynamicScene {
+import java.util.ArrayList;
+
+public class SpelScherm extends DynamicScene implements MouseButtonPressedListener {
 
     private GameApp gameApp;
     private HealthText Levens = new HealthText(new Coordinate2D(200,10));
@@ -37,5 +43,11 @@ public class SpelScherm extends DynamicScene {
         addEntity(Levens);
         addEntity(tank);
         addEntity(speeder);
+    }
+
+    @Override
+    public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
+        Wapens kogel = new Wapens(speler.getAnchorLocation());
+        addEntity(kogel);
     }
 }
