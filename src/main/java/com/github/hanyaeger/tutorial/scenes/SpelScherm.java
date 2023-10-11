@@ -55,9 +55,16 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
         addEntity(kogel);
         if(speeder.isLevend()) {
             addEntity(schot);
+        } else {
+            speeder = new Speeder(new Coordinate2D(getWidth()-100, 100), new Size(50,50));
+            addEntity(speeder);
         }
+
         if(tank.isLevend()) {
             addEntity(raket);
+        } else {
+            tank = new Tank(new Coordinate2D(getWidth()-100, 100), new Size(50,50));
+            addEntity(tank);
         }
     }
 
