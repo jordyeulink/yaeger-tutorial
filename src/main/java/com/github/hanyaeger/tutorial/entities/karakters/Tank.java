@@ -31,6 +31,7 @@ public class Tank extends Tegenstanders{
     @Override
     public void onCollision(Collider collider) {
         if(collider instanceof Laser){
+            levend = false;
             remove();
         }
 

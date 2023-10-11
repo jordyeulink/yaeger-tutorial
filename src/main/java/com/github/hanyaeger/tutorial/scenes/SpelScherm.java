@@ -53,12 +53,12 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
         Wapens schot = new Schot(speeder.getAnchorLocation());
         Wapens raket = new Raket(tank.getAnchorLocation());
         addEntity(kogel);
-        addEntity(schot);
-        addEntity(raket);
-    }
-
-    public void removeEntity(Tegenstanders entity){
-        entity.remove();
+        if(speeder.isLevend()) {
+            addEntity(schot);
+        }
+        if(tank.isLevend()) {
+            addEntity(raket);
+        }
     }
 
 }

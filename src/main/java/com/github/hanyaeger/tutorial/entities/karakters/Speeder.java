@@ -41,6 +41,7 @@ public class Speeder extends Tegenstanders implements SceneBorderCrossingWatcher
     @Override
     public void onCollision(Collider collider) {
         if(collider instanceof Laser){
+            levend = false;
             remove();
         }
     }
