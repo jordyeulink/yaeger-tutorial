@@ -2,6 +2,7 @@ package com.github.hanyaeger.tutorial.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.TimerContainer;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
@@ -14,11 +15,13 @@ import com.github.hanyaeger.tutorial.entities.kogels.Raket;
 import com.github.hanyaeger.tutorial.entities.kogels.Schot;
 import com.github.hanyaeger.tutorial.entities.kogels.Wapens;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
+import com.github.hanyaeger.tutorial.timers.Timer;
 import javafx.scene.input.MouseButton;
 
 
 
-public class SpelScherm extends DynamicScene implements MouseButtonPressedListener {
+public class SpelScherm extends DynamicScene implements MouseButtonPressedListener, TimerContainer{
+    private Timer timer;
 
     private GameApp gameApp;
     private HealthText Levens = new HealthText(new Coordinate2D(200,10));
@@ -29,6 +32,8 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
 
     public SpelScherm(GameApp gameApp) {
         this.gameApp = gameApp;
+        timer = new Timer(1000, this);
+
     }
 
     @Override
@@ -50,9 +55,13 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
     @Override
     public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
         Wapens kogel = new Laser(speler.getAnchorLocation());
+
+        addEntity(kogel);
+    }
+
+    public void handelInteractieAf(){
         Wapens schot = new Schot(speeder.getAnchorLocation());
         Wapens raket = new Raket(tank.getAnchorLocation());
-        addEntity(kogel);
         if(speeder.isLevend()) {
             addEntity(schot);
         } else {
@@ -68,4 +77,8 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
         }
     }
 
+    @Override
+    public void setupTimers() {
+        addTimer(timer);
+    }
 }
