@@ -1,6 +1,4 @@
 package com.github.hanyaeger.tutorial.entities.karakters;
-
-import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
@@ -10,19 +8,11 @@ import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
-
-import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
-import com.github.hanyaeger.tutorial.entities.kogels.Laser;
 import com.github.hanyaeger.tutorial.entities.kogels.Raket;
 import com.github.hanyaeger.tutorial.entities.kogels.Schot;
-import com.github.hanyaeger.tutorial.entities.kogels.Wapens;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
-import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseButton;
-
-import java.util.Optional;
 import java.util.Set;
 
 public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian {
