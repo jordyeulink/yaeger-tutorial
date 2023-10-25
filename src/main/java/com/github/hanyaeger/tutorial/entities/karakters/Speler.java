@@ -71,7 +71,7 @@ public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBor
             healthText.setHealthText(levens);
             if(levens == 0){
                 remove();
-                gameApp.setActiveScene(0);
+                gameApp.setActiveScene(2);
             }
         }
     }
