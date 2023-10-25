@@ -30,12 +30,7 @@ public class Speeder extends Tegenstanders implements SceneBorderCrossingWatcher
 
     @Override
     public void notifyBoundaryCrossing(SceneBorder sceneBorder) {
-        if(sceneBorder == SceneBorder.LEFT){
-            setAnchorLocation(new Coordinate2D(
-                    getSceneWidth() + 100,
-                    new Random().nextInt((int)(getSceneHeight()-getHeight())))
-            );
-        }
+        beweeg(sceneBorder);
     }
 
     @Override
@@ -43,6 +38,15 @@ public class Speeder extends Tegenstanders implements SceneBorderCrossingWatcher
         if(collider instanceof Laser){
             levend = false;
             remove();
+        }
+    }
+    @Override
+    public void beweeg(SceneBorder sceneBorder) {
+        if(sceneBorder == SceneBorder.LEFT){
+            setAnchorLocation(new Coordinate2D(
+                    getSceneWidth() + 100,
+                    new Random().nextInt((int)(getSceneHeight()-getHeight())))
+            );
         }
     }
 }

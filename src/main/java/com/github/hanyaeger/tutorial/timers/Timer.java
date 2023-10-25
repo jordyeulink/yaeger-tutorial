@@ -12,7 +12,7 @@ public class Timer extends com.github.hanyaeger.api.Timer {
     }
 
     @Override
-    public void onAnimationUpdate(long l) {S
+    public void onAnimationUpdate(long l) {
         spel.handelInteractieAf();
     }
 }

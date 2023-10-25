@@ -21,11 +21,7 @@ public class Tank extends Tegenstanders{
 
     @Override
     public void notifyBoundaryTouching(SceneBorder sceneBorder) {
-        if(sceneBorder == SceneBorder.TOP){
-            setMotion(3,0d);
-        } else {
-                setMotion(3, 180d);
-        }
+    beweeg(sceneBorder);
     }
 
     @Override
@@ -35,5 +31,14 @@ public class Tank extends Tegenstanders{
             remove();
         }
 
+    }
+
+    @Override
+    public void beweeg(SceneBorder sceneBorder) {
+        if(sceneBorder == SceneBorder.TOP){
+            setMotion(3,0d);
+        } else {
+            setMotion(3, 180d);
+        }
     }
 }

@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class StartKnop extends TextEntity implements MouseButtonPressedListener, MouseEnterListener, MouseExitListener {
+public class StartKnop extends Knoppen {
     private GameApp gameApp;
     public StartKnop(Coordinate2D initialLocation, GameApp gameApp){
         super(initialLocation,"Play game");
@@ -23,7 +23,7 @@ public class StartKnop extends TextEntity implements MouseButtonPressedListener,
 
     @Override
     public void onMouseButtonPressed(MouseButton button, Coordinate2D coordinate2D){
-        gameApp.setActiveScene(1);
+        doeKnopActie();
     }
 
     @Override
@@ -38,4 +38,8 @@ public class StartKnop extends TextEntity implements MouseButtonPressedListener,
         setCursor(Cursor.DEFAULT);
     }
 
+    @Override
+    public void doeKnopActie() {
+        gameApp.setActiveScene(1);
+    }
 }

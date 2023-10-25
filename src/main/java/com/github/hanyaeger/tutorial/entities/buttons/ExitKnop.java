@@ -11,14 +11,14 @@ import javafx.scene.paint.Color;
 
 import static javafx.application.Platform.exit;
 
-public class ExitKnop extends TextEntity implements MouseButtonPressedListener, MouseEnterListener, MouseExitListener {
+public class ExitKnop extends Knoppen {
     public ExitKnop(Coordinate2D initialLocation) {
         super(initialLocation, "exit");
     }
 
     @Override
     public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
-    exit();
+    doeKnopActie();
     }
 
     @Override
@@ -31,5 +31,10 @@ public class ExitKnop extends TextEntity implements MouseButtonPressedListener, 
     public void onMouseExited(){
         setFill(Color.PURPLE);
         setCursor(Cursor.DEFAULT);
+    }
+
+    @Override
+    public void doeKnopActie() {
+        exit();
     }
 }

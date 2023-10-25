@@ -7,6 +7,7 @@ import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
+import com.github.hanyaeger.api.scenes.SceneBorder;
 
 public abstract class Tegenstanders extends DynamicSpriteEntity implements Collided, Newtonian, SceneBorderTouchingWatcher {
     protected boolean levend;
@@ -14,6 +15,8 @@ public abstract class Tegenstanders extends DynamicSpriteEntity implements Colli
         super(resource, initialLocation, size);
         levend = true;
     }
+
+    public abstract void beweeg(SceneBorder sceneBorder);
 
     public boolean isLevend() {
         return levend;
