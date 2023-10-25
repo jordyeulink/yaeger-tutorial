@@ -6,6 +6,7 @@ import com.github.hanyaeger.api.TimerContainer;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
+import com.github.hanyaeger.tutorial.entities.Meteorieten;
 import com.github.hanyaeger.tutorial.entities.karakters.Speeder;
 import com.github.hanyaeger.tutorial.entities.karakters.Speler;
 import com.github.hanyaeger.tutorial.entities.karakters.Tank;
@@ -18,6 +19,7 @@ import com.github.hanyaeger.tutorial.entities.text.HealthText;
 import com.github.hanyaeger.tutorial.timers.Timer;
 import javafx.scene.input.MouseButton;
 
+import java.util.Random;
 
 
 public class SpelScherm extends DynamicScene implements MouseButtonPressedListener, TimerContainer{
@@ -27,6 +29,8 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
     private HealthText Levens = new HealthText(new Coordinate2D(200,10));
     private Tank tank;
     private Speler speler;
+
+    private Meteorieten meteoriet;
 
     private Speeder speeder;
 
@@ -46,6 +50,14 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
         speler = new Speler(new Coordinate2D(100,300), Levens, gameApp);
         tank = new Tank(new Coordinate2D(getWidth()-100, 100), new Size(50,50));
         speeder = new Speeder(new Coordinate2D(getWidth()-100, 100), new Size(50,50));
+
+        Random rand = new Random();
+
+        for(int i = 0; i < 5; i++){
+            meteoriet = new Meteorieten(500 * rand.nextDouble(),500 * rand.nextDouble());
+            addEntity(meteoriet);
+        }
+
         addEntity(speler);
         addEntity(Levens);
         addEntity(tank);
