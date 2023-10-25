@@ -12,8 +12,7 @@ public class Timer extends com.github.hanyaeger.api.Timer {
     }
 
     @Override
-    public void onAnimationUpdate(long l) {
-        System.out.println("test");
+    public void onAnimationUpdate(long l) {S
         spel.handelInteractieAf();
     }
 }
