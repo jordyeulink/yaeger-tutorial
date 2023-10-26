@@ -1,12 +1,12 @@
 package com.github.hanyaeger.tutorial.timers;
 import com.github.hanyaeger.tutorial.scenes.SpelScherm;
 
-public class Timer extends com.github.hanyaeger.api.Timer {
+public class TegenstanderTimer extends com.github.hanyaeger.api.Timer {
 
     private SpelScherm spel;
 
 
-    public Timer(long intervalInMs, SpelScherm spel) {
+    public TegenstanderTimer(long intervalInMs, SpelScherm spel) {
         super(intervalInMs);
         this.spel = spel;
     }

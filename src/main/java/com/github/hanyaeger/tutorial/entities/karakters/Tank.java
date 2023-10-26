@@ -9,10 +9,9 @@ import com.github.hanyaeger.tutorial.entities.kogels.Laser;
 import com.github.hanyaeger.tutorial.entities.kogels.Wapens;
 
 public class Tank extends Tegenstanders{
-    Coordinate2D initialLocation;
+
     public Tank(Coordinate2D initialLocation, Size size) {
         super("sprites/tank.png", initialLocation, size);
-        this.initialLocation = initialLocation;
         setMotion(3,0d);
         setGravityConstant(0);
         setFrictionConstant(0);

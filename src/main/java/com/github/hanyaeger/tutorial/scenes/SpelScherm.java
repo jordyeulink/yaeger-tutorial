@@ -3,7 +3,6 @@ package com.github.hanyaeger.tutorial.scenes;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.TimerContainer;
-import com.github.hanyaeger.api.entities.YaegerEntity;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
@@ -11,20 +10,19 @@ import com.github.hanyaeger.tutorial.entities.Meteorieten;
 import com.github.hanyaeger.tutorial.entities.karakters.Speeder;
 import com.github.hanyaeger.tutorial.entities.karakters.Speler;
 import com.github.hanyaeger.tutorial.entities.karakters.Tank;
-import com.github.hanyaeger.tutorial.entities.karakters.Tegenstanders;
 import com.github.hanyaeger.tutorial.entities.kogels.Laser;
 import com.github.hanyaeger.tutorial.entities.kogels.Raket;
 import com.github.hanyaeger.tutorial.entities.kogels.Schot;
 import com.github.hanyaeger.tutorial.entities.kogels.Wapens;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
-import com.github.hanyaeger.tutorial.timers.Timer;
+import com.github.hanyaeger.tutorial.timers.TegenstanderTimer;
 import javafx.scene.input.MouseButton;
 
 import java.util.Random;
 
 
 public class SpelScherm extends DynamicScene implements MouseButtonPressedListener, TimerContainer{
-    private Timer timer;
+    private TegenstanderTimer timer;
 
     private GameApp gameApp;
     private HealthText Levens = new HealthText(new Coordinate2D(200,10));
@@ -37,7 +35,7 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
 
     public SpelScherm(GameApp gameApp) {
         this.gameApp = gameApp;
-        timer = new Timer(1000, this);
+        timer = new TegenstanderTimer(1000, this);
 
     }
 
