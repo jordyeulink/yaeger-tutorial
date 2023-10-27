@@ -7,8 +7,8 @@ import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 
-public class Wapens extends DynamicSpriteEntity implements SceneBorderCrossingWatcher, Collider {
-    public Wapens( Coordinate2D initialLocation,  String resource) {
+public abstract class Wapen extends DynamicSpriteEntity implements SceneBorderCrossingWatcher, Collider {
+    public Wapen(Coordinate2D initialLocation, String resource) {
         super(resource, initialLocation, new Size(50,70));
 
     }

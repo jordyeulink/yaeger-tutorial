@@ -15,7 +15,7 @@ import com.github.hanyaeger.tutorial.entities.karakters.Tegenstanders;
 import com.github.hanyaeger.tutorial.entities.kogels.Laser;
 import com.github.hanyaeger.tutorial.entities.kogels.Raket;
 import com.github.hanyaeger.tutorial.entities.kogels.Schot;
-import com.github.hanyaeger.tutorial.entities.kogels.Wapens;
+import com.github.hanyaeger.tutorial.entities.kogels.Wapen;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
 import com.github.hanyaeger.tutorial.timers.Timer;
 import javafx.scene.input.MouseButton;
@@ -67,14 +67,14 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
 
     @Override
     public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
-        Wapens kogel = new Laser(speler.getAnchorLocation());
+        Wapen kogel = new Laser(speler.getAnchorLocation());
 
         addEntity(kogel);
     }
 
     public void handelInteractieAf(){
-        Wapens schot = new Schot(speeder.getAnchorLocation());
-        Wapens raket = new Raket(tank.getAnchorLocation());
+        Wapen schot = new Schot(speeder.getAnchorLocation());
+        Wapen raket = new Raket(tank.getAnchorLocation());
         if(speeder.isLevend()) {
             addEntity(schot);
         } else {

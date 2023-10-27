@@ -9,7 +9,7 @@ import com.github.hanyaeger.tutorial.entities.kogels.Laser;
 
 import java.util.Random;
 
-public class Speeder extends Tegenstanders implements SceneBorderCrossingWatcher {
+public class Speeder extends Tegenstander implements SceneBorderCrossingWatcher {
     public Speeder(Coordinate2D initialLocation, Size size) {
         super("sprites/speeder.png", initialLocation, size);
         setMotion(7,345d);
