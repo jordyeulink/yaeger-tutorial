@@ -22,7 +22,7 @@ import javafx.scene.input.MouseButton;
 import java.util.Random;
 
 
-public class SpelScherm extends DynamicScene implements MouseButtonPressedListener, TimerContainer{
+public class SpelScherm extends DynamicScene implements MouseButtonPressedListener,TimerContainer{
     private Timer timer;
 
     private GameApp gameApp;
@@ -65,13 +65,6 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
         addEntity(speeder);
     }
 
-    @Override
-    public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
-        Wapen kogel = new Laser(speler.getAnchorLocation());
-
-        addEntity(kogel);
-    }
-
     public void entityToevoegen(YaegerEntity entity){
         addEntity(entity);
     }
@@ -92,4 +85,8 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
         addTimer(timer);
     }
 
+    @Override
+    public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
+        speler.schiet(this);
+    }
 }
