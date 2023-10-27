@@ -9,10 +9,14 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.hanyaeger.tutorial.GameApp;
+import com.github.hanyaeger.tutorial.entities.kogels.Laser;
 import com.github.hanyaeger.tutorial.entities.kogels.Raket;
 import com.github.hanyaeger.tutorial.entities.kogels.Schot;
+import com.github.hanyaeger.tutorial.entities.kogels.Wapen;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
+import com.github.hanyaeger.tutorial.scenes.SpelScherm;
 import javafx.scene.input.KeyCode;
+
 import java.util.Set;
 
 public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian {
@@ -24,6 +28,7 @@ public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBor
         super("sprites/speler.png", location, new Size(50));
         this.healthText = healthText;
         this.gameApp = gameApp;
+
 
         setGravityConstant(0);
         setFrictionConstant(0.02);
@@ -74,5 +79,10 @@ public class Speler extends DynamicSpriteEntity implements KeyListener, SceneBor
                 gameApp.setActiveScene(2);
             }
         }
+    }
+
+    public void schiet(SpelScherm spel){
+        Wapen kogel = new Laser(getAnchorLocation());
+        spel.entityToevoegen(kogel);
     }
 }

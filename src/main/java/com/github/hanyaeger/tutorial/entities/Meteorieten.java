@@ -7,8 +7,6 @@ import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.tutorial.entities.kogels.Laser;
 
-import java.util.Random;
-
 public class Meteorieten extends DynamicSpriteEntity implements Collided {
     public Meteorieten(double x, double y) {
         super("sprites/meteoriet.png", new Coordinate2D(x, y), new Size(50));
