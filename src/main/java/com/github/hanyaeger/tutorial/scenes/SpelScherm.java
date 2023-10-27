@@ -11,19 +11,15 @@ import com.github.hanyaeger.tutorial.entities.Meteorieten;
 import com.github.hanyaeger.tutorial.entities.karakters.Speeder;
 import com.github.hanyaeger.tutorial.entities.karakters.Speler;
 import com.github.hanyaeger.tutorial.entities.karakters.Tank;
-import com.github.hanyaeger.tutorial.entities.kogels.Laser;
-import com.github.hanyaeger.tutorial.entities.kogels.Raket;
-import com.github.hanyaeger.tutorial.entities.kogels.Schot;
-import com.github.hanyaeger.tutorial.entities.kogels.Wapen;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
-import com.github.hanyaeger.tutorial.timers.Timer;
+import com.github.hanyaeger.tutorial.timers.TegenstanderTimer;
 import javafx.scene.input.MouseButton;
 
 import java.util.Random;
 
 
 public class SpelScherm extends DynamicScene implements MouseButtonPressedListener,TimerContainer{
-    private Timer timer;
+    private TegenstanderTimer timer;
 
     private GameApp gameApp;
     private HealthText Levens = new HealthText(new Coordinate2D(200,10));
@@ -50,7 +46,7 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
         speler = new Speler(new Coordinate2D(100,300), Levens, gameApp);
         tank = new Tank(new Coordinate2D(getWidth()-100, 100), new Size(50,50), this);
         speeder = new Speeder(new Coordinate2D(getWidth()-100, 100), new Size(50,50), this);
-        timer = new Timer(1000, tank, speeder, this);
+        timer = new TegenstanderTimer(1000, tank, speeder, this);
 
         Random rand = new Random();
 

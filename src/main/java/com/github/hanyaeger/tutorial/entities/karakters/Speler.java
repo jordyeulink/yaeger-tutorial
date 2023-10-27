@@ -8,7 +8,6 @@ import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
-import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
 import com.github.hanyaeger.tutorial.entities.kogels.Laser;
 import com.github.hanyaeger.tutorial.entities.kogels.Raket;
@@ -17,7 +16,6 @@ import com.github.hanyaeger.tutorial.entities.kogels.Wapen;
 import com.github.hanyaeger.tutorial.entities.text.HealthText;
 import com.github.hanyaeger.tutorial.scenes.SpelScherm;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseButton;
 
 import java.util.Set;
 
