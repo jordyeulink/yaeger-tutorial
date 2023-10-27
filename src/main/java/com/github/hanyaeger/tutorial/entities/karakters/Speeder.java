@@ -13,7 +13,6 @@ import com.github.hanyaeger.tutorial.entities.kogels.Wapen;
 import java.util.Random;
 
 public class Speeder extends Tegenstander implements SceneBorderCrossingWatcher {
-    private SpelScherm spel;
     public Speeder(Coordinate2D initialLocation, Size size , SpelScherm spel) {
         super("sprites/speeder.png", initialLocation, size);
         this.spel = spel;

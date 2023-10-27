@@ -12,7 +12,7 @@ import com.github.hanyaeger.tutorial.scenes.SpelScherm;
 
 
 public class Tank extends Tegenstander {
-    private SpelScherm spel;
+
     public Tank(Coordinate2D initialLocation, Size size, SpelScherm spel) {
         super("sprites/tank.png", initialLocation, size);
         this.spel = spel;
