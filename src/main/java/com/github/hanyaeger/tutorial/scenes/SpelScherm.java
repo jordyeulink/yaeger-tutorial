@@ -3,6 +3,7 @@ package com.github.hanyaeger.tutorial.scenes;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.TimerContainer;
+import com.github.hanyaeger.api.entities.YaegerEntity;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.tutorial.GameApp;
@@ -35,7 +36,7 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
 
     public SpelScherm(GameApp gameApp) {
         this.gameApp = gameApp;
-        timer = new Timer(1000, this);
+
 
     }
 
@@ -47,8 +48,9 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
     @Override
     public void setupEntities() {
         speler = new Speler(new Coordinate2D(100,300), Levens, gameApp);
-        tank = new Tank(new Coordinate2D(getWidth()-100, 100), new Size(50,50));
-        speeder = new Speeder(new Coordinate2D(getWidth()-100, 100), new Size(50,50));
+        tank = new Tank(new Coordinate2D(getWidth()-100, 100), new Size(50,50), this);
+        speeder = new Speeder(new Coordinate2D(getWidth()-100, 100), new Size(50,50), this);
+        timer = new Timer(1000, tank, speeder, this);
 
         Random rand = new Random();
 
@@ -70,26 +72,24 @@ public class SpelScherm extends DynamicScene implements MouseButtonPressedListen
         addEntity(kogel);
     }
 
-    public void handelInteractieAf(){
-        Wapen schot = new Schot(speeder.getAnchorLocation());
-        Wapen raket = new Raket(tank.getAnchorLocation());
-        if(speeder.isLevend()) {
-            addEntity(schot);
-        } else {
-            speeder = new Speeder(new Coordinate2D(getWidth()-100, 100), new Size(50,50));
+    public void entityToevoegen(YaegerEntity entity){
+        addEntity(entity);
+    }
+    public void respawner(){
+        if(!speeder.isLevend()) {
+            speeder = new Speeder(new Coordinate2D(getWidth() - 100, 100), new Size(50, 50),this );
             addEntity(speeder);
+            timer.setSpeeder(speeder);
         }
-
-        if(tank.isLevend()) {
-            addEntity(raket);
-        } else {
-            tank = new Tank(new Coordinate2D(getWidth()-100, 100), new Size(50,50));
+        if (!tank.isLevend()) {
+            tank = new Tank(new Coordinate2D(getWidth()-100, 100), new Size(50,50),this);
             addEntity(tank);
+            timer.setTank(tank);
         }
     }
-
     @Override
     public void setupTimers() {
         addTimer(timer);
     }
+
 }
